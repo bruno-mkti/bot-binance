@@ -84,12 +84,12 @@ async function start() {
     const lastPrice = parseFloat(candle[4]);
 
     console.clear();
-    console.log("Price: " + lastPrice);
+    console.log("Preço Atual: " + lastPrice);
 
     const prices = data.map(k => parseFloat(k[4]));
     const rsi = RSI(prices, PERIOD);
     console.log("RSI: " + rsi);
-    console.log("Já comprei? " + isOpened);
+    console.log("Compra: " + isOpened);
 
     /* Aqui fica a estratégia onde comprar e vender. 
     Nesse exemplo coloquei o rsi < 30 para comprar e rsi > 70 para vender  
@@ -107,7 +107,7 @@ async function start() {
         isOpened = false;
     }
     else
-        console.log("aguardar");
+        console.log("Aguardando compra");
 
 }
 
