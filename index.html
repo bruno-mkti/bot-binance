@@ -16,15 +16,15 @@
         <h1>Dashboard USDT</h1>
         <p class="info">Preço Atual: <span id="price">--</span> USDT</p>
         <p class="info">RSI: <span id="rsi">--</span></p>
+    </div>
+    <br>
+    <div class="container">
         <p class="info">Compras: <span id="buyCount"></span></p>
         <p class="info">Vendas: <span id="sellCount"></span></p>
         <p class="info">Lucro: <span id="profit"></span> USDT</p>
+        <p>RSI < 30 = Compra</p>
+        <p>RSI > 70 = Venda</p>
     </div>
-    <div>
-        <p>RSI < 40 = Compra</p>
-        <p>RSI > 60 = Venda</p>
-    </div>
-    
     <script>
         async function fetchData() {
             try {
