@@ -46,14 +46,14 @@
   <script>
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3000/data");
+        const response = await fetch("https://bot-binance-production.up.railway.app/");
         const data = await response.json();
 
         document.getElementById("preco").textContent = `📌 Preço atual: ${data.price} USDT`;
         document.getElementById("rsi").textContent = `📉 RSI: ${data.rsi.toFixed(2)}`;
         document.getElementById("compras").textContent = `✅ Compras: ${data.buyCount}`;
         document.getElementById("vendas").textContent = `🔴 Vendas: ${data.sellCount}`;
-        document.getElementById("investimento").textContent = `💼 Investimento: 0.00020563 USDT / Aproximadamente 100,00`;
+        document.getElementById("investimento").textContent = `💼 Investimento: 0.00020563 USDT / Aproximadamente 100 R$`;
         document.getElementById("lucroBruto").textContent = `💰 Lucro bruto: ${data.profit} USDT`;
         document.getElementById("lucroLiquido").textContent = `📈 Lucro líquido (após taxas): ${data.profitAfterFees} USDT (≈ R$${data.profitBRL})`;
 
