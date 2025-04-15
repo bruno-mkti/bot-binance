@@ -95,13 +95,24 @@ app.get("/data", async (req, res) => {
         const prices = data.map(k => parseFloat(k[4]));
         const rsi = RSI(prices, PERIOD);
 
+        // 0.2% de taxa por operação completa (compra+venda)
+        const feeRate = 0.002; // 0.2% em decimal
+        const profitAfterFees = profit * (1 - feeRate);
+
+        // Cotação do dólar para real (pode ser atualizado dinamicamente depois)
+        const usdtToBRL = 5.05;
+        const profitBRL = profitAfterFees * usdtToBRL;
+
         res.json({ 
             price: lastPrice, 
             rsi, 
             buyCount, 
             sellCount, 
-            profit 
-        });
+            profit: profit.toFixed(2), 
+            profitAfterFees: profitAfterFees.toFixed(2),
+            profitBRL: profitBRL.toFixed(2)
+});
+
 
     } catch (error) {
         res.status(500).json({ error: "Erro ao obter dados" });

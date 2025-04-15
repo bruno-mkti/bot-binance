@@ -7,7 +7,7 @@ const API_KEY = process.env.API_KEY;
 const SECRET_KEY = process.env.API_SECRET;
 
 const SYMBOL = "BTCUSDT";
-const QUANTITY = "0.001";
+const QUANTITY = "0.00020563";
 const PERIOD = 14;
 
 let isOpened = false;
