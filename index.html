@@ -40,6 +40,7 @@
     <p id="investimento"></p>
     <p id="lucroBruto"></p>
     <p id="lucroLiquido"></p>
+    <p>📊 Rentabilidade: <span id="lucroPercentualValor"></span></p>
   </div>
 
   <script>
@@ -52,9 +53,22 @@
         document.getElementById("rsi").textContent = `📉 RSI: ${data.rsi.toFixed(2)}`;
         document.getElementById("compras").textContent = `✅ Compras: ${data.buyCount}`;
         document.getElementById("vendas").textContent = `🔴 Vendas: ${data.sellCount}`;
-        document.getElementById("investimento").textContent = `💼 Investimento: 0.00020563 USDT;
+        document.getElementById("investimento").textContent = `💼 Investimento: 0.00020563 USDT ≈ R$ 100`;
         document.getElementById("lucroBruto").textContent = `💰 Lucro bruto: ${data.profit} USDT`;
         document.getElementById("lucroLiquido").textContent = `📈 Lucro líquido (após taxas): ${data.profitAfterFees} USDT (≈ R$${data.profitBRL})`;
+
+        const lucroPercentual = parseFloat(data.lucroPercentual);
+        const lucroSpan = document.getElementById("lucroPercentualValor");
+
+        lucroSpan.textContent = `${lucroPercentual}%`;
+
+        if (lucroPercentual > 0) {
+          lucroSpan.style.color = "#00ff88"; // verde
+        } else if (lucroPercentual < 0) {
+          lucroSpan.style.color = "#ff4d4d"; // vermelho
+        } else {
+          lucroSpan.style.color = "#cccccc"; // neutro
+        }
 
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
