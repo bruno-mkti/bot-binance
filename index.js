@@ -6,12 +6,9 @@ require("dotenv").config();
 const app = express();
 const PORT = 3000;
 
-const API_KEY = process.env.API_KEY; 
-const SECRET_KEY = process.env.API_SECRET;
-
 app.use(cors());
 
-const API_URL = "https://api.binance.com";
+const API_URL = "http://100.106.19.113:3000/data"; // Substitua pela URL da API real http://api.binance.com
 const SYMBOL = "BTCUSDT";
 const QUANTITY = "0.00020563"; // Aproximadamente 100,00
 const PERIOD = 14;
