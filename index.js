@@ -6,9 +6,12 @@ require("dotenv").config();
 const app = express();
 const PORT = 3000;
 
+const API_KEY = process.env.API_KEY; 
+const SECRET_KEY = process.env.API_SECRET;
+
 app.use(cors());
 
-const API_URL = "https://testnet.binance.vision";
+const API_URL = "https://api.binance.com";
 const SYMBOL = "BTCUSDT";
 const QUANTITY = "0.00020563"; // Aproximadamente 100,00
 const PERIOD = 14;
