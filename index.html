@@ -45,7 +45,7 @@
   <script>
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3000/data"); // Substitua pela URL do servidor
+        const response = await fetch("http://localhost:3000/data"); // Substitua pela URL do seu servidor
         const data = await response.json();
 
         document.getElementById("preco").textContent = `📌 Preço atual: ${data.price} USDT`;
